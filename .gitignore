@@ -1,0 +1,31 @@
+# Build outputs
+artifacts/
+bin/
+obj/
+build/
+dist/
+release/
+*.exe
+*.pdb
+*.zip
+*.rar
+
+# Local user data and diagnostics
+data/
+*.log
+.env
+.env.*
+
+# Experiments and caches
+ocr-tests/
+.venv*/
+__pycache__/
+*.pyc
+.tmp*/
+
+# IDE and OS files
+.vs/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
