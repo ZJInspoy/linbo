@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="docs/linbo3-hero.png" alt="泠波 3.0" width="760">
+  <img src="docs/linbo3-hero.png" alt="Linbo 3.0" width="760">
 </p>
 
-<h1 align="center">泠波</h1>
+<h1 align="center">Linbo</h1>
 
-<p align="center">面向 AIGC 工作流的 Windows 原生无限画布提示词管理工具</p>
+<p align="center">A native Windows infinite-canvas prompt manager for AIGC workflows.</p>
 
 <p align="center">
   <img alt="Platform" src="https://img.shields.io/badge/platform-Windows-111111">
@@ -12,48 +12,46 @@
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-111111">
 </p>
 
-泠波把提示词、参考资料和临时图片组织在一张本地无限画布中。卡片只展示标题，正文作为隐藏内容保存，需要时可以一键复制。所有持久数据默认保存在本机，不依赖账号或云服务。
+Linbo organizes prompts, reference material, and temporary images on a local infinite canvas. Each card displays a title while keeping its full text hidden and ready to copy. Persistent data stays on your computer by default, with no account or cloud service required.
 
-Linbo is a native Windows infinite-canvas prompt clipboard for AIGC workflows.
+## Features
 
-## 功能
+- **Infinite canvas:** Pan, zoom, navigate with a minimap, create cards by drawing a region, and arrange cards in a two-column masonry layout.
+- **Prompt cards:** Store a title and hidden body, copy content in one click, assign color labels, pin important cards, archive cards, and persist everything locally.
+- **Document import:** Drag in Word or TXT files to use the file name as the card title and the document body as its hidden content.
+- **Archive canvas:** Switch with a card-flip transition, restore archived cards, delete individual cards, or clear the archive.
+- **Temporary reference canvas:** Paste or drag in images, resize them proportionally, draw directly on an image, mirror prompt cards, and save individual items locally.
+- **Window workflow:** Use a borderless window with five adjustable boundaries, two-stage maximize behavior, and restored window position between sessions.
 
-- 无限画布：平移、缩放、小地图、框选建卡和双列瀑布流整理。
-- 提示词卡片：标题、隐藏正文、一键复制、标签、置顶、归档和本地持久化。
-- 文档导入：拖入 Word 或 TXT，以文件名作为标题、正文作为隐藏内容。
-- 归档画布：翻面切换、恢复、单卡删除和清空归档。
-- 临时参考画布：粘贴或拖入图片、等比缩放、涂鸦、镜像卡片和另存为。
-- 窗口工作流：无边框窗口、五条边界调整、两级最大化和位置记忆。
+## Download
 
-## 下载
+Download the Windows installer from [GitHub Releases](../../releases/latest). Compiled executables are not committed to the source repository.
 
-Windows 安装程序通过 [GitHub Releases](../../releases/latest) 发布。源码仓库不提交编译后的 EXE。
+## Local Data
 
-## 本地数据
-
-泠波不会主动上传卡片内容。默认数据文件位于：
+Linbo does not upload card content. Its persistent state is stored at:
 
 ```text
 %APPDATA%\Linbo\linbo-native-state.json
 ```
 
-覆盖安装会保留本地数据。卸载时可以先将卡片反向导出为 Word，再清除本地数据。重要内容仍建议定期备份。
+Installing a newer version preserves existing local data. During uninstallation, you can export cards to Word before the local data is removed. Regular backups are still recommended for important content.
 
-## 从源码构建
+## Build From Source
 
-环境要求：
+Requirements:
 
-- Windows 10 或 Windows 11
-- PowerShell 5.1 或更高版本
-- .NET Framework 4.8 Developer Pack（推荐）
+- Windows 10 or Windows 11
+- PowerShell 5.1 or later
+- .NET Framework 4.8 Developer Pack (recommended)
 
-在仓库根目录执行：
+Run the following command from the repository root:
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
 ```
 
-构建结果位于 `artifacts/`：
+Build output is written to `artifacts/`:
 
 ```text
 Linbo.exe
@@ -62,9 +60,9 @@ Linbo-3.0-Setup.exe
 SHA256SUMS.txt
 ```
 
-## 验证
+## Validation
 
-构建完成后，以 STA 模式运行三个轻量验证脚本：
+After building, run the three lightweight validation scripts in STA mode:
 
 ```powershell
 powershell.exe -STA -NoProfile -ExecutionPolicy Bypass -File .\tests\clipboard_probe.ps1
@@ -72,10 +70,10 @@ powershell.exe -STA -NoProfile -ExecutionPolicy Bypass -File .\tests\scratch_vis
 powershell.exe -STA -NoProfile -ExecutionPolicy Bypass -File .\tests\window_geometry_probe.ps1
 ```
 
-## 参与贡献
+## Contributing
 
-欢迎通过 Issue 报告可复现的问题，也欢迎提交范围清晰的 Pull Request。涉及交互变化时，请说明操作路径、预期结果和实际结果；涉及数据读写时，请同时说明升级和异常退出场景。
+Reproducible bug reports and focused pull requests are welcome. For interaction changes, include the steps, expected result, and actual result. For data-handling changes, also describe upgrade behavior and unexpected-exit scenarios.
 
-## 许可证
+## License
 
-泠波的代码和仓库内图像素材均按 [GNU General Public License v3.0](LICENSE) 发布。你可以使用、研究、修改和分发本项目；分发修改版本时，需要继续提供对应源码并保留相同许可证。
+Linbo's source code and image assets are released under the [GNU General Public License v3.0](LICENSE). You may use, study, modify, and redistribute the project. Distributed modifications must remain under the same license and include the corresponding source code.
